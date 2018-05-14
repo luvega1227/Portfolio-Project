@@ -1,3 +1,31 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: 2dc3c49;
+  text-transform: uppercase;
+}
+
+header {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 1em;
+  align-items: center;
+}
+
+.logo {
+  height: 90px;
+  width:  auto;
+  margin-right: auto;
+}
+
 hr {
     display: grid;
     margin-top: 0.5em;
@@ -6,14 +34,14 @@ hr {
     margin-right: auto;
     border-style: solid;
     border-width: 2px;
-    color: blue;
+    color: #2d3c4;
 }
 
 .nav-brand {
   display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 80%;
   }
 
 .gallery {
