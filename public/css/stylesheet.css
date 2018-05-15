@@ -1,0 +1,202 @@
+* {
+  /* Makes width and height include padding, border */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2d3c49;
+}
+
+/* Header */
+
+h1 {
+  /* Disables h1 default bold styling */
+  font-weight: 200;
+  /* Browsers typically display h1 as 2em */
+  font-size: 3em;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+/* Adds a bit of space above subtitle (set h1 bottom margin to 0) */
+header h4 {
+  margin-top: 7px;
+}
+
+/* Top content */
+header {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 1em;
+  /* Vertically centers logo  */
+  align-items: center;
+}
+
+/* logo img */
+.logo {
+  height: 90px;
+  width: auto;
+  margin-right: auto;
+}
+
+/* Aligns h4 text in header to be flush right rather than aligned flush left with left edge of h1 text (caused by logo's right auto margin) */
+.job-title {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Divider line/top image */
+
+hr {
+  background-color: #7d97ad;
+  max-width: 1000px;
+  margin-bottom: 1em;
+  border: none;
+  height: 3px;
+}
+
+.main-image {
+  max-width: 700px;
+  height: auto;
+  margin-bottom: 1.5em;
+
+}
+
+/* Applies to content within <main> element (excludes header, footer) */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Projects section */
+
+.project-header {
+  width: 100%;
+  text-align: center;
+  color: #7d97ad;
+}
+
+/* Applies to project section (excludes header text; if it is included, browser will think it's its own box, causing layout bug on certain viewport sizes) */
+.container-gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+/* Div containing single project's title, image, text */
+.project {
+  width: 300px;
+  height: auto;
+}
+
+.project p, h3 {
+  text-align: center;
+}
+
+/* Images cropped with 3:2 ratio, scaled resolution down to 600 x 400 */
+.project-image {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+
+  .project-image:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+
+/* Media queries (breakpoints correspond to Bootstrap breakpoints). 1rem = 16px. Order matters; must put queries from largest to smallest max width */
+
+/* Small laptops */
+@media screen and (max-width: 1199px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 991px) {
+  h1 {
+    font-size: 1.7rem;
+  }
+}
+
+/* Small devices */
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 1.6em;
+  }
+
+  h2 {
+  font-size: 1.3em;
+  }
+
+  h3 {
+  font-size: 1.1em;
+  }
+
+  h4 {
+    font-size: 0.8em;
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+  }
+
+  header {
+    margin: 0 1.5em 0 0.5em;
+  }
+
+  header, .container {
+    max-width: 100%;
+  }
+
+  /* Must specify max-width for img even though parent .container has the same declaration because max-width isn't inherited */
+  .container img {
+    max-width: 100%;
+  }
+
+  /* Applies to project section (including header text) */
+  .container-gallery {
+    /* Originally margin: 2em 0 */
+    margin: 1.5em 0 0 0;
+  }
+
+  /* Aligns portfolio header text flush left of portfolio rows */
+  .featured-work {
+    /* Increased width by 20px */
+    width: 320px;
+    margin: 10px auto 0 auto;
+  }
+
+  /* Div containing single project's title, image, text */
+  .project {
+    width: 320px;
+    height: auto;
+    /* Top, left/right, bottom. Centers projects (aligned left otherwise) */
+    margin: 0 auto 1.2em;
+  }
+
+  /* Images cropped with 3:2 ratio, scaled resolution down to 600 x 400 */
+  .project-image {
+    width: 300px;
+    height: 200px;
+  }
+}
