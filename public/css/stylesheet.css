@@ -1,5 +1,4 @@
 * {
-  /* Makes width and height include padding, border */
   box-sizing: border-box;
 }
 
@@ -13,20 +12,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Header */
-
 h1 {
   /* Disables h1 default bold styling */
   font-weight: 200;
-  /* Browsers typically display h1 as 2em */
-  font-size: 3em;
+  font-size: 6rem;
   margin-bottom: 0;
   text-transform: uppercase;
   text-align: right;
 }
 
-/* Adds a bit of space above subtitle (set h1 bottom margin to 0) */
+h4 {
+  font-size: 1.8rem;
+}
+
 header h4 {
-  margin-top: 7px;
+  margin-top: 5px;
 }
 
 /* Top content */
@@ -35,7 +35,6 @@ header {
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 1em;
-  /* Vertically centers logo  */
   align-items: center;
 }
 
@@ -46,14 +45,12 @@ header {
   margin-right: auto;
 }
 
-/* Aligns h4 text in header to be flush right rather than aligned flush left with left edge of h1 text (caused by logo's right auto margin) */
 .job-title {
   display: flex;
   justify-content: flex-end;
 }
 
 /* Divider line/top image */
-
 hr {
   background-color: #7d97ad;
   max-width: 1000px;
@@ -69,7 +66,7 @@ hr {
 
 }
 
-/* Applies to content within <main> element (excludes header, footer) */
+/* Applies to content within <main> element */
 .container {
   display: flex;
   flex-direction: column;
@@ -79,15 +76,14 @@ hr {
   margin: 0 auto;
 }
 
-/* Projects section */
-
+/* Project section */
 .project-header {
   width: 100%;
   text-align: center;
   color: #7d97ad;
 }
 
-/* Applies to project section (excludes header text; if it is included, browser will think it's its own box, causing layout bug on certain viewport sizes) */
+/* Gallery Section */
 .container-gallery {
   display: flex;
   flex-direction: row;
@@ -107,7 +103,6 @@ hr {
   text-align: center;
 }
 
-/* Images cropped with 3:2 ratio, scaled resolution down to 600 x 400 */
 .project-image {
   width: 300px;
   height: 200px;
@@ -115,36 +110,57 @@ hr {
   border-radius: 4px;
 }
 
-
-  .project-image:hover {
+.project-image:hover {
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
-
-/* Media queries (breakpoints correspond to Bootstrap breakpoints). 1rem = 16px. Order matters; must put queries from largest to smallest max width */
+/* Media queries for different screen sizes from large to small */
 
 /* Small laptops */
 @media screen and (max-width: 1199px) {
   h1 {
-    font-size: 3rem;
+    font-size: 6rem;
+  }
+  h4 {
+    font-size: 1.8rem;
   }
 }
 
 /* Tablets */
 @media screen and (max-width: 991px) {
   h1 {
-    font-size: 1.7rem;
+    font-size: 5rem;
+  }
+
+  h3 {
+  font-size: 1.8rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+  /* Div containing single project's title, image, text */
+  .project {
+    width: 235px;
+    height: auto;
+    /* Top, left/right, bottom. Centers projects (aligned left otherwise) */
+    margin: 0 auto 1.2em;
+  }
+
+  .project-image {
+    width: 215px;
+    height: auto;
   }
 }
 
 /* Small devices */
 @media screen and (max-width: 767px) {
   h1 {
-    font-size: 1.6em;
+    font-size: 2.8em;
   }
 
   h2 {
-  font-size: 1.3em;
+  font-size: 1.5em;
   }
 
   h3 {
@@ -152,7 +168,7 @@ hr {
   }
 
   h4 {
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 
   .logo {
@@ -168,19 +184,17 @@ hr {
     max-width: 100%;
   }
 
-  /* Must specify max-width for img even though parent .container has the same declaration because max-width isn't inherited */
   .container img {
     max-width: 100%;
   }
 
-  /* Applies to project section (including header text) */
+  /* Applies to project section */
   .container-gallery {
-    /* Originally margin: 2em 0 */
     margin: 1.5em 0 0 0;
   }
 
   /* Aligns portfolio header text flush left of portfolio rows */
-  .featured-work {
+  .project-header {
     /* Increased width by 20px */
     width: 320px;
     margin: 10px auto 0 auto;
@@ -190,13 +204,11 @@ hr {
   .project {
     width: 320px;
     height: auto;
-    /* Top, left/right, bottom. Centers projects (aligned left otherwise) */
     margin: 0 auto 1.2em;
   }
 
-  /* Images cropped with 3:2 ratio, scaled resolution down to 600 x 400 */
   .project-image {
     width: 300px;
-    height: 200px;
+    height: auto;
   }
 }
